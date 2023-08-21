@@ -1,0 +1,302 @@
+BoxLayout
+    orientation: "vertical"
+
+    MDTopAppBar:
+        title: "Festékkalkulátor"
+        anchor_title: "left"
+        right_action_items: [["information", lambda x: app.information()], ["close", lambda x: app.stop()]]
+        right_action_items:
+        md_bg_color: "#9B817C"
+
+    MDBottomNavigation:
+        panel_color: "#9B817C"
+        selected_color_background: "lightgray"
+        text_color_active: "black"
+        #első menüpont
+        MDBottomNavigationItem:
+            name: 'screen 1'
+            text: 'Fal'
+            text_color_active: "black"
+            icon: 'number-one.png'
+            MDTabs:
+                id: ingr_tab
+                background_color: "#806964"
+                allow_stretch: True
+                fixed_tab_label_width: 10
+                Tab:
+                    title: "\'A\' fal"
+                    GridLayout:
+                        rows: 1
+                        cols: 0
+                        BoxLayout:
+                            orientation: 'horizontal'
+                            padding: [10,10]
+                            GridLayout:
+                                rows: 6
+                                cols: 0
+                                MDLabel:
+                                    text: "A fal szélessége:"
+                                    font_size: 22
+                                falszelleseg:
+                                    id: Aszel
+                                    hint_text: "cm"
+                                    font_size: 40
+                                MDLabel
+                                MDLabel:
+                                    text: "A fal magassága:"
+                                    font_size: 22
+                                falmagassag:
+                                    id: Amag
+                                    hint_text: "cm"
+                                    font_size: 40
+                                MDLabel
+                Tab:
+                    title: "\'B\' fal"
+                    MDLabel:
+                    GridLayout:
+                        rows: 1
+                        cols: 0
+                        BoxLayout:
+                            orientation: 'horizontal'
+                            padding: [10,10]
+                            GridLayout:
+                                rows: 6
+                                cols: 0
+                                MDLabel:
+                                    text: "A fal szélessége:"
+                                    font_size: 22
+                                falszelleseg:
+                                    id: Bszel
+                                    hint_text: "cm"
+                                    font_size: 40
+                                MDLabel
+                                MDLabel:
+                                    text: "A fal magassága:"
+                                    font_size: 22
+                                falmagassag:
+                                    id: Bmag
+                                    hint_text: "cm"
+                                    font_size: 40
+                                MDLabel
+                Tab:
+                    title: "\'C\' fal"
+                    MDLabel:
+                    GridLayout:
+                        rows: 1
+                        cols: 0
+                        BoxLayout:
+                            orientation: 'horizontal'
+                            padding: [10,10]
+                            GridLayout:
+                                rows: 6
+                                cols: 0
+                                MDLabel:
+                                    text: "A fal szélessége:"
+                                    font_size: 22
+                                falszelleseg:
+                                    id: Cszel
+                                    hint_text: "cm"
+                                    font_size: 40
+                                MDLabel
+                                MDLabel:
+                                    text: "A fal magassága:"
+                                    font_size: 22
+                                falmagassag:
+                                    id: Cmag
+                                    hint_text: "cm"
+                                    font_size: 40
+                                MDLabel
+                Tab:
+                    title: "\'D\' fal"
+                    MDLabel:
+                    GridLayout:
+                        rows: 1
+                        cols: 0
+                        BoxLayout:
+                            orientation: 'horizontal'
+                            padding: [10,10]
+                            GridLayout:
+                                rows: 6
+                                cols: 0
+                                MDLabel:
+                                    text: "A fal szélessége:"
+                                    font_size: 22
+                                falszelleseg:
+                                    id: Dszel
+                                    hint_text: "cm"
+                                    font_size: 40
+                                MDLabel
+                                MDLabel:
+                                    text: "A fal magassága:"
+                                    font_size: 22
+                                falmagassag:
+                                    id: Dmag
+                                    hint_text: "cm"
+                                    font_size: 40
+                                MDLabel
+
+        #második menüpont
+        MDBottomNavigationItem:
+            name: 'screen 2'
+            text: 'Ablak'
+            text_color_active: "black"
+            icon: 'number-2.png'
+            GridLayout:
+                rows: 1
+                cols: 0
+                BoxLayout:
+                    orientation: 'horizontal'
+                    padding: [10,10]
+                    GridLayout:
+                        rows: 6
+                        cols: 0
+                        BoxLayout:
+                            size_hint_y: None
+                            height: dp(48)
+                            MDTextField:
+                                mode: "round"
+                                id: number_input
+                                value: 0
+                                hint_text: "Adja meg, hogy hány ablak van a szobában!"
+                            MDRoundFlatIconButton:
+                                text: "OK"
+                                icon: "view-carousel"
+                                text_color: "white"
+                                md_bg_color: (0,.2,.4,1)
+                                halign: "right"
+                                on_release: app.ablak_create_text_fields()
+                        ScrollView:
+                            do_scroll_x: False
+                            BoxLayout:
+                                id: text_field_container
+                                orientation: 'vertical'
+                                size_hint_y: None
+                                height: self.minimum_height
+                                size_hint_x: 1
+                        MDRoundFlatIconButton:
+                            text: "Mentés"
+                            icon: "android"
+                            text_color: "white"
+                            md_bg_color: (0,.2,.4,1)
+                            halign: "right"
+                            on_release: app.idmeghat()
+
+        #harmadik
+        MDBottomNavigationItem:
+            name: 'screen 3'
+            text: 'Ajtó'
+            text_color_active: "black"
+            icon: 'number-3.png'
+            GridLayout:
+                rows: 1
+                cols: 0
+                BoxLayout:
+                    orientation: 'horizontal'
+                    padding: [10,10]
+                    GridLayout:
+                        rows: 6
+                        cols: 0
+                        BoxLayout:
+                            size_hint_y: None
+                            height: dp(48)
+                            MDTextField:
+                                mode: "round"
+                                id: number_input2
+                                hint_text: "Adja meg, hogy hány ajtó van a szobában!"
+                            MDRoundFlatIconButton:
+                                text: "OK"
+                                icon: "view-carousel"
+                                text_color: "white"
+                                md_bg_color: (0,.2,.4,1)
+                                halign: "right"
+                                on_release: app.ajto_create_text_fields()
+                        ScrollView:
+                            do_scroll_x: False
+                            BoxLayout:
+                                id: text_field_container2
+                                orientation: 'vertical'
+                                size_hint_y: None
+                                height: self.minimum_height
+                                size_hint_x: 1
+                        MDRoundFlatIconButton:
+                            text: "Mentés"
+                            icon: "android"
+                            text_color: "white"
+                            md_bg_color: (0,.2,.4,1)
+                            halign: "right"
+                            on_release: app.idmeghat2()
+
+        MDBottomNavigationItem:
+            name: 'screen 4'
+            text: 'Festék'
+            text_color_active: "black"
+            icon: 'paint-bucket.png'
+            MDFloatLayout:
+                GridLayout:
+                    rows: 1
+                    cols: 0
+                    BoxLayout:
+                        orientation: 'horizontal'
+                        padding: [10,10]
+                        GridLayout:
+                            rows: 6
+                            cols: 2
+                            MDLabel:
+                                text: "A teljes festendő fal felület"
+                            MDLabel:
+                                id: container1
+                                text: ""
+                                halign: 'right'
+                            MDLabel:
+                                text: "A teljes festendő plafon felület"
+                            MDLabel:
+                                id: container12
+                                text: ""
+                                halign: 'right'
+                            MDLabel:
+                                text: "A falakhoz szükséges festék"
+                            MDLabel:
+                                id: container123
+                                text: ""
+                                halign: 'right'
+                            MDLabel:
+                                text: "A plafonhoz szükséges festék"
+                            MDLabel:
+                                id: container1234
+                                text: ""
+                                halign: 'right'
+                            MDLabel:
+
+            MDRectangleFlatButton:
+                on_release: [[app.plafonszamitas()], [app.falszamitas()]]
+                pos_hint: {"center_x":0.5, "center_y":0.08}
+                text: "Számol!"
+
+
+
+<falszelleseg@MDTextField>:
+    mode: "rectangle"
+    input_type: 'number'
+    input_filter: 'int'
+    multiline: False
+    required: True
+    helper_text_mode: "on_error"
+    helper_text: "Adja meg a fal szélességét!"
+
+<falmagassag@MDTextField>:
+    mode: "rectangle"
+    input_type: 'number'
+    input_filter: 'int'
+    multiline: False
+    required: True
+    helper_text_mode: "on_error"
+    helper_text: "Adja meg a fal magasságát!"
+
+<P>:
+    MDLabel:
+        text: "A programról:\n\n Ez egy festékkalkulátor program, amivel ki tudod számolni,\n hogy egy szoba kifestéséhez hány liter festékre van szükséged!\n\n by: makkathran"
+        pos_hint: {"x":0, "y":0.15}
+        halign: "center"
+    MDIconButton:
+        icon: "email"
+        pos_hint: {"center_x":0.5, "y":0.1}
