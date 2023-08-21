@@ -1,0 +1,2 @@
+# WallPaintCalculator
+ The project is a paint calculator application developed using the Kivy and KivyMD frameworks. It aims to help users estimate the amount of paint required for interior walls and ceilings. With a graphical user interface, the app provides an intuitive way to input room dimensions, door and window sizes, and then calculates the paint quantity needed. It's a handy tool for both DIY enthusiasts and professional painters.
