@@ -12,7 +12,6 @@ BoxLayout
         panel_color: "#9B817C"
         selected_color_background: "lightgray"
         text_color_active: "black"
-        #első menüpont
         MDBottomNavigationItem:
             name: 'screen 1'
             text: 'Fal'
@@ -135,7 +134,6 @@ BoxLayout
                                     font_size: 40
                                 MDLabel
 
-        #második menüpont
         MDBottomNavigationItem:
             name: 'screen 2'
             text: 'Ablak'
@@ -181,7 +179,6 @@ BoxLayout
                             halign: "right"
                             on_release: app.idmeghat()
 
-        #harmadik
         MDBottomNavigationItem:
             name: 'screen 3'
             text: 'Ajtó'
@@ -271,8 +268,6 @@ BoxLayout
                 on_release: [[app.plafonszamitas()], [app.falszamitas()]]
                 pos_hint: {"center_x":0.5, "center_y":0.08}
                 text: "Számol!"
-
-
 
 <falszelleseg@MDTextField>:
     mode: "rectangle"
