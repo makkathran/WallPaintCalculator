@@ -9,18 +9,12 @@ osz_ablak2 = 0
 
 class Tab(MDFloatLayout, MDTabsBase):
     pass
-
-
 class Tab1(MDFloatLayout, MDTabsBase):
     pass
-
-
 class P(MDFloatLayout):
     pass
-
-
 class TestApp(MDApp):
-
+    
     def ablak_create_text_fields(self):
         number_of_text_fields = int(self.root.ids.number_input.text)
         self.root.ids.text_field_container.clear_widgets()
@@ -29,10 +23,8 @@ class TestApp(MDApp):
                 MDTextField(hint_text="{}. Ablak szélessége [cm]".format(i + 1), id=f"ablakszelessege_{i}"))
             self.root.ids.text_field_container.add_widget(
                 MDTextField(hint_text="{}. Ablak magassága [cm]".format(i + 1), id=f"ablakmagassaga_{i}"))
-            # print(f"ablakszelessege_{i}")
-            # print(f"ablakmagassaga_{i}")
         return number_of_text_fields
-
+        
     def ajto_create_text_fields(self):
         number_of_text_fields_2 = int(self.root.ids.number_input2.text)
         self.root.ids.text_field_container2.clear_widgets()
@@ -41,14 +33,11 @@ class TestApp(MDApp):
                 MDTextField(hint_text="{}. Ajtó szélessége [cm]".format(i + 1), id=f"ajtoszelessege_{i}"))
             self.root.ids.text_field_container2.add_widget(
                 MDTextField(hint_text="{}. Ajtó magassága [cm]".format(i + 1), id=f"ajtomagassaga_{i}"))
-            # print(ablakszelessege_0)
-            # print(f"ablakmagassaga_{i}")
 
     def build(self):
         return Builder.load_file("test.kv")
 
     def idmeghat(self):
-        # ezzel tudom kiiratni az id értékeket
         text_field_value = self.root.ids.text_field_container.children[0].text
         print(text_field_value)
         my_list = []
